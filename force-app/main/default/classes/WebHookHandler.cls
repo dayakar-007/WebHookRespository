@@ -11,5 +11,6 @@ global with sharing class WebHookHandler {
         RestRequest req = RestContext.request;
         Blob body = req.requestBody;
         String requestBody = body.toString();
+        System.debug('requestBody: ' + requestBody);
     }
 }
