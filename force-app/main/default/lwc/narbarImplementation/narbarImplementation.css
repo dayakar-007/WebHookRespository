@@ -1,0 +1,4 @@
+.slds-is-active {
+    border-bottom: 3px solid #92c1ea; /* Blue underline */
+    transition: border-bottom 0.3s ease-in-out;
+}

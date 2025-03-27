@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Account Record Details" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <p><strong>Account ID:</strong> {recordId}</p>
+        </div>
+    </lightning-card>
+
+    <lightning-card>
+        <template if:true={contacts.data}>
+            <template for:each={contacts.data} for:item="con">
+                <div key={con.Id} class="contact-card">
+                    <div class="contact-header">
+                        <h1 class="contact-name">{con.Name}</h1>
+                        <lightning-button 
+                            variant="destructive"
+                            label="Delete"
+                            onclick={handleDelete}
+                            data-id={con.Id}
+                        ></lightning-button>
+                    </div>
+                    <p class="contact-phone">{con.Phone}</p>
+                    <hr class="contact-divider">
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

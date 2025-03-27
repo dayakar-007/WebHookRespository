@@ -1,0 +1,30 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.submit-button {
+    align-self: center;
+}

@@ -1,0 +1,55 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-26-2025
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Manual Fulfillment">
+        <template if:true={fulfillmentLines}>
+            <template for:each={fulfillmentLines} for:item="item">
+                <div key={item.Id} class="slds-box slds-m-bottom_small slds-grid slds-wrap slds-gutters">
+                    
+                    <!-- Description -->
+                    <div class="slds-col slds-size_1-of-4">
+                        <p><strong>{item.Description}</strong></p>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="slds-col slds-size_1-of-4">
+                        <p>Quantity: {item.Quantity}</p>
+                    </div>
+
+                    <!-- Fulfilled -->
+                    <div class="slds-col slds-size_1-of-4">
+                        <p>Fulfilled: {item.Quantity_Fulfilled__c}</p>
+                    </div>
+
+                    <!-- Picklist -->
+                    <div class="slds-col slds-size_1-of-4">
+                        <lightning-combobox
+                            name={item.Id}
+                            label="Quantity to Fulfill"
+                            value={item.selectedQuantity}
+                            placeholder="Select quantity"
+                            options={item.pickListOptions}
+                            onchange={handleQuantityChange}>
+                        </lightning-combobox>
+                    </div>
+                </div>
+            </template>
+        </template>
+        <template if:true={hasQuantityChanges}>
+            <div class="slds-grid slds-grid_align-end slds-p-horizontal_medium slds-p-bottom_medium">
+                <lightning-button
+                    variant="brand"
+                    label="Create Shipment"
+                    title="Create Shipment"
+                    onclick={handleCreateShipment}>
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+
+</template>

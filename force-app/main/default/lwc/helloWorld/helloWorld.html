@@ -1,0 +1,16 @@
+<template>
+    <lightning-card>
+        
+        <lightning-input type="checkbox" onchange={toggle} label="Show details "></lightning-input>
+
+        
+        <template if:true={flag}> True block executed</template>
+        <template if:false={flag}>False block executed</template>
+
+        <template for:each={arr} for:item="a">
+            <h1 key={a}>{a}</h1>
+        </template>
+     
+
+    </lightning-card>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <template for:each={accounts} for:item="acc">
+        <lightning-card title={acc.Name} key={acc.Id} class="account-card">
+            <div class="account-details">
+                <h1 class="account-name">{acc.Name}</h1>
+                <h2 class="account-number">Account Number: {acc.AccountNumber}</h2>
+                <p class="account-status">Status: {acc.Active__c}</p>
+            </div>
+        </lightning-card>
+    </template>
+</template>

@@ -1,0 +1,7 @@
+.wrappedHeaderTable .slds-table thead th {
+    white-space: normal !important; /* Allow text to wrap */
+    word-wrap: break-word !important;
+    text-overflow: ellipsis; /* Ensures long words are properly wrapped */
+    max-width: 150px; /* Adjust based on your layout */
+    padding: 5px; /* Space inside the header */
+}

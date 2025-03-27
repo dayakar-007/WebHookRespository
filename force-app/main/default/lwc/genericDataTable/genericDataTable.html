@@ -1,0 +1,53 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-17-2025
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Dynamic Data Table" icon-name="standard:record">
+         <!-- Search Box -->
+         <div class="slds-m-around_medium">
+            <lightning-input type="search"
+                             label="Search Accounts"
+                             placeholder="Search by Account Name..."
+                             onchange={handleSearch}>
+            </lightning-input>
+        </div>
+        <!-- Data Table -->
+        <div style="height: 400px;">
+            <lightning-datatable
+                key-field="Id"
+                data={displayedRecords}
+                columns={columns}
+                draft-values={draftValues}
+                onsort={handleSort}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection}
+                onsave={handleSave}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="slds-m-top_medium slds-align_absolute-center">
+            <lightning-button-icon icon-name="utility:chevronleft"
+                                   alternative-text="Previous"
+                                   variant="brand"
+                                   onclick={handlePrevious}
+                                   disabled={disablePrevious}>
+            </lightning-button-icon>
+
+            <span class="slds-m-horizontal_medium"> Page {currentPage} of {totalPages} </span>
+
+            <lightning-button-icon icon-name="utility:chevronright"
+                                   alternative-text="Next"
+                                   variant="brand"
+                                   onclick={handleNext}
+                                   disabled={disableNext}>
+            </lightning-button-icon>
+        </div>
+
+    </lightning-card>
+</template>
